@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TEAMROHITOFFICAL45_LIVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+    }
+    .jwplayer {
+      position: absolute !important;
+    }
+    .jwplayer.jw-flag-aspect-mode {
+      min-height: 100%;
+      max-height: 100%;
+    }
+
+    /* Popup Styling */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      background: rgba(20, 20, 20, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.5);
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .popup h2 {
+      color: yellow;
+      margin-bottom: 10px;
+      margin-top: 15px;
+    }
+    .popup p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .popup button {
+      width: 90%;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.3s;
+    }
+    .join-btn {
+      background: linear-gradient(45deg, #ff0000, #cc0000);
+      color: white;
+      box-shadow: 0 0 10px red;
+    }
+    .joined-btn {
+      background: linear-gradient(45deg, #444, #333);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- JWPlayer -->
+  <div id="jwplayerDiv"></div>
+
+  <!-- Telegram Popup -->
+  <div class="popup" id="telegramPopup">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <h2>Support Us!</h2>
+    <p>Join our Telegram channel <b>@teamrohitoffical45</b> for updates.</p>
+    <button class="join-btn" onclick="joinTelegram()">Join Now</button>
+    <button class="joined-btn" onclick="closePopup()">Already Joined</button>
+  </div>
+
+  <script>
+    // JWPlayer optimized setup
+    jwplayer("jwplayerDiv").setup({
+      file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd",
+      type: "dash",
+      autostart: true,          // Auto start
+      preload: "auto",          // Preload video
+      stretching: "uniform",    // Good stretch behavior
+      width: "100%",            // Full width
+      bufferlength: 3,          // Small buffer for fast start
+      liveSyncDuration: 3,      // Stay close to live
+      drm: {
+        clearkey: {
+          keyId: "1779c27b9d077a3ba0c9cc1bb9a94b9f",
+          key: "cc5cf3b7928fb9e0a1ee6a8b566f0a8e"
+        }
+      }
+    });
+
+    // Popup Functions
+    function joinTelegram() {
+      window.open('https://t.me/+Abr6OELq5KZkZjNl', '_blank');
+      closePopup();
+    }
+
+    function closePopup() {
+      document.getElementById('telegramPopup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
