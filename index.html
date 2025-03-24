@@ -1,127 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>TEAMROHITOFFICAL45_LIVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-    }
-    .jwplayer {
-      position: absolute !important;
-    }
-    .jwplayer.jw-flag-aspect-mode {
-      min-height: 100%;
-      max-height: 100%;
-    }
-
-    /* Popup Styling */
-    .popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 280px;
-      height: 280px;
-      background: rgba(20, 20, 20, 0.9);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.5);
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .popup .close-btn {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .popup h2 {
-      color: yellow;
-      margin-bottom: 10px;
-      margin-top: 15px;
-    }
-    .popup p {
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .popup button {
-      width: 90%;
-      padding: 12px;
-      font-size: 15px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: all 0.3s;
-    }
-    .join-btn {
-      background: linear-gradient(45deg, #ff0000, #cc0000);
-      color: white;
-      box-shadow: 0 0 10px red;
-    }
-    .joined-btn {
-      background: linear-gradient(45deg, #444, #333);
-      color: white;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- JWPlayer -->
-  <div id="jwplayerDiv"></div>
-
-  <!-- Telegram Popup -->
-  <div class="popup" id="telegramPopup">
-    <button class="close-btn" onclick="closePopup()">×</button>
-    <h2>Support Us!</h2>
-    <p>Join our Telegram channel <b>@teamrohitoffical45</b> for updates.</p>
-    <button class="join-btn" onclick="joinTelegram()">Join Now</button>
-    <button class="joined-btn" onclick="closePopup()">Already Joined</button>
-  </div>
-
-  <script>
-    // JWPlayer optimized setup
-    jwplayer("jwplayerDiv").setup({
-      file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd",
-      type: "dash",
-      autostart: true,          // Auto start
-      preload: "auto",          // Preload video
-      stretching: "uniform",    // Good stretch behavior
-      width: "100%",            // Full width
-      bufferlength: 3,          // Small buffer for fast start
-      liveSyncDuration: 3,      // Stay close to live
-      drm: {
-        clearkey: {
-          keyId: "1779c27b9d077a3ba0c9cc1bb9a94b9f",
-          key: "cc5cf3b7928fb9e0a1ee6a8b566f0a8e"
+    <title>USA Network</title>
+    <link rel="icon" href="https://i.postimg.cc/prMQRWMR/skfav.png" type="image/png" sizes="250x250">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/shaka-player.ui.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/controls.min.css" crossorigin="anonymous">
+    <style>
+        /* Overflow menu style */
+        .shaka-overflow-menu {
+            background-color: rgb(41, 41, 163);
+            color: rgb(153, 153, 153);
         }
-      }
-    });
+        .shaka-overflow-menu button:hover {
+            background-color: rgb(45, 45, 45);
+        }
+        .shaka-overflow-button-label {
+            color: rgb(245, 245, 245);
+        }
+        .shaka-current-selection-span {
+            color: rgb(202, 202, 202);
+        }
+        .material-icons-round {
+            color: rgb(230, 230, 230);
+        }
+        /* Overflow sub menu style */
+        .shaka-settings-menu {
+            background-color: rgb(35, 35, 35);
+            color: rgb(255, 255, 255);
+        }
+        .shaka-settings-menu button {
+            color: rgb(255, 255, 255);
+        }
+        .shaka-settings-menu button:hover {
+            background-color: rgb(45, 45, 45);
+        }
+    </style>
+</head>
+<body bgcolor="black" style="margin:0">
+    <center>
+        <div data-shaka-player-container style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover">
+            <video autoplay muted data-shaka-player id="video" 
+                poster="https://images.fubo.tv/channel-config-ui/station-logos/on-dark/willow_2023_primary-white.png" 
+                style="width:100%;height:100%"></video>
+        </div>
+    </center>
 
-    // Popup Functions
-    function joinTelegram() {
-      window.open('https://t.me/+Abr6OELq5KZkZjNl', '_blank');
-      closePopup();
-    }
+    <script>
+        async function init() {
+            let video = document.getElementById("video");
+            let ui = video.ui;
+            let controls = ui.getControls();
+            let player = controls.getPlayer();
 
-    function closePopup() {
-      document.getElementById('telegramPopup').style.display = 'none';
-    }
-  </script>
+            player.configure({
+                drm: {
+                    clearKeys: {
+                        "1779c27b9d077a3ba0c9cc1bb9a94b9f": "cc5cf3b7928fb9e0a1ee6a8b566f0a8e"
+                    }
+                }
+            });
 
+            ui.configure({
+                controlPanelElements: ["play_pause", "mute", "volume", "spacer", "time_and_duration", "quality", "fullscreen", "overflow_menu"],
+                volumeBarColors: {
+                    base: 'rgba(63, 187, 1, 1)',
+                    level: 'rgb(255, 69, 0)'
+                },
+                seekBarColors: {
+                    base: 'rgb(41, 41, 163)',
+                    buffered: 'rgb(35, 99, 3)',
+                    played: 'rgba(63, 187, 1, 1)'
+                }
+            });
+
+            window.player = player;
+            window.ui = ui;
+
+            player.addEventListener("error", onPlayerErrorEvent);
+            controls.addEventListener("error", onUIErrorEvent);
+
+            try {
+                await player.load("https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd");
+                console.log("The video has now been loaded!");
+            } catch (error) {
+                onPlayerError(error);
+            }
+        }
+
+        function onPlayerErrorEvent(event) {
+            onPlayerError(event.detail);
+        }
+
+        function onPlayerError(error) {
+            console.error("Error code", error.code, "object", error);
+        }
+
+        function onUIErrorEvent(event) {
+            onPlayerError(event.detail);
+        }
+
+        function initFailed(error) {
+            console.error("Unable to load the UI library!");
+        }
+
+        function welcome() {
+            window.open("https://t.me/+e6G48oujQuExOTg1");
+        }
+
+        document.addEventListener("shaka-ui-loaded", init);
+        document.addEventListener("shaka-ui-load-failed", initFailed);
+      // Telegram prompt
+        const message = "JOIN OUR TELEGRAM CHANNEL FOR MORE LIVE STREAM LINKS";
+        if (confirm(message)) {
+            window.location.href = "https://t.me/+e6G48oujQuExOTg1";
+        }
+    </script>
 </body>
 </html>
